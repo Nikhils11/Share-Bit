@@ -2,13 +2,18 @@ package com.ShareBite.Entity;
 
 import jakarta.persistence.*;
 
-import java.awt.*;
-
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "foodItemsTable")
 public class FoodItems {
+
+    public FoodItems(long categorayId,String itemName){
+
+        this.itemName = itemName;
+        this.categorayId = categorayId;
+
+    }
 
     @Id
     @GeneratedValue(strategy =  IDENTITY)
@@ -19,7 +24,7 @@ public class FoodItems {
     private String  itemName ;
 
     @Column
-    private Long catagoryId;
+    private Long categorayId;
 
     public long getId(){
 
@@ -38,14 +43,14 @@ public class FoodItems {
         return this.itemName;
     }
 
-    public void setCatagoryId(long catagoryId){
+    public void setCategorayId(long categorayId){
 
-        this.catagoryId = catagoryId;
+        this.categorayId = categorayId;
     }
 
-    public long getCatagoryId(){
+    public long getCategorayId(){
 
-        return  this.catagoryId;
+        return  this.categorayId;
     }
 
 }

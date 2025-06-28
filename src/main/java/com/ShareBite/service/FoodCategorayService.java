@@ -58,5 +58,37 @@ public List<FoodCatagory> findAll(){
     return  foodCategorayRepo.findAll();
 }
 
+public boolean checkIfCatogoryExist(String catogoray){
+
+    List<FoodCatagory> list  = foodCategorayRepo.findAll();
+    for(FoodCatagory item  : list){
+
+        if(item.getCatagory().equals((catogoray))){
+
+            return true;
+        }
+
+    }
+
+    return false;
+
+}
+
+public long getCatagorayId(String catogoray){
+
+    List<FoodCatagory> list  = foodCategorayRepo.findAll();
+    for(FoodCatagory item  : list){
+
+        if(item.getCatagory().equals((catogoray))){
+
+            return item.getSerialNo();
+        }
+
+    }
+
+    return -1;
+
+}
+
 
 }
